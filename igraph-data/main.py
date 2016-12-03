@@ -71,6 +71,7 @@ for line in f:
     node_values = line.split()
 
     if len(node_values) < 10:
+        i += 1
         continue
 
     video_id = node_values[0]
@@ -91,10 +92,10 @@ for line in f:
 
 f.close()
 
+g.write('youtube.pickle', 'pickle')
 g.write('youtube.gml', 'gml')
 g.write('youtube.adjacency', 'adjacency')
 g.write('youtube.svg', 'svg')
 g.write('youtube.graphml', 'graphml')
-g.write('youtube.pickle', 'pickle')
 g.write('youtube.edgelist', 'edgelist')
 g.write('youtube.lgl', 'lgl')
