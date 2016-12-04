@@ -1,3 +1,5 @@
+# You need to make sure thare are no spaces in the 'category' in the text files
+
 from __future__ import division
 from igraph import *
 
@@ -26,12 +28,12 @@ quarter = False
 half = False
 three_quarters = False
 
-f = open('../youtube-data/big.txt', 'r')
+f = open('../youtube-data/2.txt', 'r')
 for line in f:
     node_values = line.split()
 
     # throwing out incomplete pieces of data
-    if len(node_values) < 7:
+    if len(node_values) < 8:
         continue
 
     video_id = node_values[0]
@@ -49,7 +51,7 @@ for line in f:
 
     g.add_vertex(video_id, author=author, age=age, category=category, length=length, views=views, rate=rate, ratings=ratings, comments=comments)
     i += 1
-    if i / 300000 > 0.25 and not quarter :
+    if i / 300000 > 0.25 and not quarter:
         print '25%'
         quarter = True
     elif i / 300000 > .5 and not half:
@@ -66,8 +68,9 @@ print 'adding edges'
 
 i = 0
 p = 500
-f = open('../youtube-data/big.txt', 'r')
+f = open('../youtube-data/2.txt', 'r')
 for line in f:
+    print i
     node_values = line.split()
 
     if len(node_values) < 10:
@@ -85,6 +88,8 @@ for line in f:
         continue
     i += 1
 
+    print i
+
     if i >= p:
         print str((i / 300000) * 100) + "%"
         p += 500
@@ -99,3 +104,4 @@ g.write('youtube.edgelist', 'edgelist')
 g.write('youtube.lgl', 'lgl')
 g.write('youtube.adjacency', 'adjacency')
 g.write('youtube.svg', 'svg')
+
