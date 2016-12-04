@@ -28,9 +28,15 @@ x = {
 }
 
 
+def initialize(x):
+    for category in x:
+        x[category] = 0
+
+
 def in_degree_average(g):
     # takes a graph as input
     # returns a list denoting average in_degree_centrality
+    initialize(x)
     i = 0
 
     for v in g.vs:
@@ -41,6 +47,17 @@ def in_degree_average(g):
         print(category + " " + str((x[category] / i) * 100))
 
 
-in_degree_average(g)
+def average_view_count(g):
+    initialize(x)
+    i = 0
+    for v in g.vs:
+        print v['views']
+        i += 1
+        x[v['category']] += int(v['views'])
+
+    for category in x:
+        print(category + " " + str((x[category] / i)))
+
+average_view_count(g)
 
 
