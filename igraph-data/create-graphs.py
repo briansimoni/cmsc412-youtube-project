@@ -5,17 +5,6 @@ from igraph import *
 
 g = Graph()
 
-# if not g["name"]["fart"]:
-#     print "lol"
-# g.add_vertices(3)
-# g.add_edges([(0, 1), (1, 2)])
-# g.add_vertex()
-#
-# g.vs[0]["name"] = "Alice"
-# g.vs[1]["name"] = "Bob"
-# g.vs[2]["name"] = "Eve"
-# g.vs[3]["name"] = "farts"
-#
 # g.vs["label"] = g.vs["name"]
 #
 # layout = g.layout_kamada_kawai()
