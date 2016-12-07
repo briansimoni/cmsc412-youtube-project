@@ -96,6 +96,7 @@ def average_pagerank(g):
     initialize(x)
     for v in g.vs:
         i += 1
+        videos[v['category']] += 1
         if i < len(p):
             v['pagerank'] = p[i]
     i = 0
@@ -105,8 +106,10 @@ def average_pagerank(g):
         if v['pagerank'] != None:
             x[v['category']] += v['pagerank']
 
+
     for category in x:
-        print(category + " " + str(x[category] * 100))
+        if videos[category] != 0:
+            print(category + " " + str(x[category] / videos[category]))
 
 
 def average_rate(g):
@@ -143,18 +146,10 @@ def mode_videos(g):
         if x[category] != 0:
             print category + " " + str(x[category]) + " " + id[category]
 
-# def mode_videos(g):
-#     most = 0
-#     for v in g.vs :
-#         if (v['category'] == 'Music') and (v['views'] > most):
-#             print v['views']
-#             most = v['views']
-#
-#     print most
 
 
-
-mode_videos(g)
+average_pagerank(g)
+#mode_videos(g)
 
 
 
